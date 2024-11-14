@@ -1,55 +1,45 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../connect.js"); 
-const Student = require("./Student.js");  
+const sequelize = require("../connect.js");
+const Student = require("./Student.js");
 
+const Application = sequelize.define(
+  "Application",
+  {
+    age: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
 
-const Application = sequelize.define (
+    location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
+    cv: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
-    "Application", 
-    {
- 
-       age: {
-           type: DataTypes.INTEGER, 
-           allowNull: false, 
- 
-       }, 
- 
-         location: {
-           type:DataTypes.STRING, 
-           allowNull:false,
-
-         },  
-
-          cv: {
-             type:DataTypes.STRING, 
-             allowNull:false,
-          },
-
-         stu_id: {
-            type: DataTypes.INTEGER,
-            references: {
-              model: Student,
-              key: "id",
-            },
-          }, 
-      
-      status:{
-         type:DataTypes.BOOLEAN, 
-         allowNull: false,
-         defaultValue: true,
+    stu_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Student,
+        key: "id",
       },
- 
-    }, 
- 
-    {
-     timestamps: true,
-     createdAt: "created_at",
-     updatedAt: "updated_at",
-   }
+    },
 
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+  },
 
+  {
+    timestamps: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
+  }
 );
 
 module.exports = Application;
-

@@ -1,88 +1,78 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../connect.js"); 
+const sequelize = require("../connect.js");
 
 const Student = sequelize.define(
+  "Student",
+  {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
 
-   "Student", 
-   {
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
-      username: {
-          type: DataTypes.STRING, 
-          allowNull: false, 
-          unique: true,
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
-      }, 
+    password: {
+      type: DataTypes.STRING,
+    },
 
-      first_name: {
-        type: DataTypes.STRING, 
-        allowNull:false, 
-      
-      }, 
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
 
-     last_name: {
-          type: DataTypes.STRING, 
-          allowNull:false, 
-         
+    phone_no: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
 
-     },  
+    nic_no: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    dob: {
+      type: DataTypes.DATE,
+    },
 
-     password:{
-        type:DataTypes.STRING, 
+    address: {
+      type: DataTypes.STRING,
+    },
 
-     },
+    nic_image_url: {
+      type: DataTypes.STRING,
+    },
 
-     email: {
-        type: DataTypes.STRING, 
-        allowNull:false, 
-        unique:true,
-     }, 
+    university: {
+      type: DataTypes.STRING,
+    },
 
-     phone_no: {
-        type:DataTypes.STRING, 
-        allowNull:false, 
-        unique:true, 
-     }, 
+    uni_index: {
+      type: DataTypes.STRING,
+    },
 
-    nic_no: { 
-        type:DataTypes.STRING, 
-        allowNull:false, 
-        unique:true,
-   
-    }, 
-    dob: { 
-        type:DataTypes.DATE,
+    status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
+  },
 
-    }, 
-
-     address:{
-        type:DataTypes.STRING,
-     }, 
-
-     nic_image_url: {
-        type:DataTypes.STRING,
-     }, 
-
-     university:{
-        type:DataTypes.STRING,
-     }, 
-
-     uni_index: {
-        type:DataTypes.STRING,
-     },   
-     
-     status:{
-        type:DataTypes.BOOLEAN, 
-        allowNull: false,
-        defaultValue: true,
-     },
-
-   }, 
-
-   {
+  {
     timestamps: true,
     createdAt: "created_at",
     updatedAt: "updated_at",
   }
-); 
+);
 
 module.exports = Student;
